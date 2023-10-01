@@ -61,9 +61,9 @@ year_chart = (
     .mark_circle()
 )
 
-matthew_year_chart = matthew_chart + year_chart
+matthew_final_chart = matthew_chart + year_chart
 
-matthew_year_chart
+matthew_final_chart
 
 
 # %%
@@ -71,14 +71,18 @@ matthew_year_chart
 # "IF YOU TALKED TO SOMEONE NAMED BRITTANY ON THE PHONE, WHAT IS YOUR
 #   GUESS OF HIS OR HER AGE? WHAT AGES WOULD YOU NOT GUESS?"
 
-# get data and filter it by year
+# get data and filter it by name and then by year
 brittany_data = names.query('name == "Brittany"')
 current_year = datetime.datetime.now().year
-brittany_data["currentAge"] = current_year - brittany_data["year"]
+
+# create a copy of the data to avoid the SettingWithCopyWarning:
+brittany_data_copy = brittany_data.copy()
+
+brittany_data_copy["currentAge"] = current_year - brittany_data_copy["year"]
 
 # create brittany chart
 britanny_chart = (
-    alt.Chart(brittany_data)
+    alt.Chart(brittany_data_copy)
     .mark_circle()
     .encode(
         x=alt.X(

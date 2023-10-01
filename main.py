@@ -13,19 +13,19 @@ names = pd.read_csv(names_url)
 
 # %%
 # display number of rows and columns
-names.shape
+# names.shape
 
 # %%
 # disply first 5 rows
-names.head()
+# names.head()
 
 # %%
 # get column names
-names.columns
+# names.columns
 
 # %%
 # count similar items by year
-names.year.value_counts()
+# names.year.value_counts()
 
 # %%
 # QUESTION 1
@@ -37,55 +37,47 @@ names.year.value_counts()
 
 # create dataframe only for "Matthew" name
 matthew_data = names.query('name == "Matthew"')
-matthew_data
 
-# %%
-STARTING_YEAR = 1910
-BORN_YEAR = 1993
+# filter data
+person_name = "Matthew"
+year_range = "year >= 1910 and year <= 2015"
+matthew_data = names.query(f"name == '{person_name}' and {year_range}")
 
-# convert 'year' column to datetime data type
-matthew_data["year"] = pd.to_datetime(matthew_data["year"], format="%Y")
-
-# filter the data, only include data points from the starting year and higher
-filtered_data = matthew_data[matthew_data["year"] >= str(STARTING_YEAR)]
-
-# select year was born
-birth_year_filter = filtered_data[filtered_data["year"] == str(BORN_YEAR)]
-
-# create chart of name through the years
-through_years_chart = (
-    alt.Chart(filtered_data).encode(x=alt.X("year:T"), y=alt.Y("Total")).mark_line()
+# create matthew chart
+matthew_chart = (
+    alt.Chart(matthew_data)
+    .encode(x=alt.X("year"), y=alt.Y("Total"), color=alt.value("blue"))
+    .mark_line()
+    .properties(title="Matthew name through the years")
 )
 
 # create a chart for the birth year 1993
-year_point = (
-    alt.Chart(birth_year_filter)
+born_year = 1993
+born_year_data = names.query(f"year == {born_year} and name == 'Matthew'")
+
+year_chart = (
+    alt.Chart(born_year_data)
+    .encode(x=alt.X("year"), y=alt.Y("Total"), color=alt.value("red"))
     .mark_circle()
-    .encode(x=alt.X("year:T"), y=alt.Y("Total"), color=alt.value("red"))
-    .properties(title="Matthew names through the years")
 )
 
-matthew_year_chart = through_years_chart + year_point
+matthew_year_chart = matthew_chart + year_chart
 
 matthew_year_chart
+
 
 # %%
 # QUESTION 2
 # "IF YOU TALKED TO SOMEONE NAMED BRITTANY ON THE PHONE, WHAT IS YOUR
 #   GUESS OF HIS OR HER AGE? WHAT AGES WOULD YOU NOT GUESS?"
-brittany_data = names.query('name == "Brittany"')
-brittany_data
 
-# %%
-# get current age and insert a new column in the dataset
+# get data and filter it by year
+brittany_data = names.query('name == "Brittany"')
 current_year = datetime.datetime.now().year
 brittany_data["currentAge"] = current_year - brittany_data["year"]
-brittany_data
 
-# %%
 # create brittany chart
-# Create the Altair chart
-chart = (
+britanny_chart = (
     alt.Chart(brittany_data)
     .mark_circle()
     .encode(
@@ -97,7 +89,8 @@ chart = (
     .properties(title="Brittany's ages in the US")
 )
 
-chart
+britanny_chart
+
 
 # %%
 # QUESTION 3
@@ -106,37 +99,49 @@ chart
 
 # create copy of the data with specified names and year range
 list_names = ["Mary", "Martha", "Peter", "Paul"]
-christian_names = names.query(f"name in {list_names}")
-christian_names_data = christian_names.query("year >= 1920 and year <= 2000")
-christian_names_data
+year_names = "year >= 1920 and year <= 2000"
+christian_names_data = names.query(f"name in {list_names} and {year_names}")
 
-chart = (
+# create chart to display names between 1920 and 2000
+christian_names_chart = (
     alt.Chart(christian_names_data)
+    .encode(x=alt.X("year"), y=alt.Y("Total"), color=alt.Color("name"))
+    .transform_loess("year", "Total", groupby=["name"])
     .mark_line()
-    .encode(
-        x=alt.X(
-            "year:T", axis=alt.Axis(title="Year")
-        ),  # Specify the x-axis as time-based with a title
-        y=alt.Y("total:Q", axis=alt.Axis(title="Name Count")),
-        color="name:N",  # Color by the name column
-        tooltip=["year", "name", "Total"],
-    )
-    .properties(
-        title="Comparison of Christian Names (1920 - 2000)",
-        # width=600,  # Adjust the chart width as needed
-        # height=400  # Adjust the chart height as needed
-    )
-    .interactive()
+    .properties(title="Christian Names Between 1920-2000")
 )
+# .interactive()
+christian_names_chart
 
-# Add a legend for name colors
-chart = chart.encode(color=alt.Color("name:N", legend=alt.Legend(title="Names")))
 
-chart
-
+# %%
 # QUESTION 4
 # THINK OF A UNIQUE NAME FROM A FAMOUS MOVIE. PLOT THE USAGE OF THAT NAME AND
 #  SEE HOW CHANGES LINE UP WITH THE MOVIE RELEASE. DOES IT LOOK LIKE THE MOVIE
 #  HAD AN EFFECT ON USAGE?
+movie_name = "Luke"
+year_range = "year >= 1960 and year <= 1990"
+movie_name_data = names.query(f"name == '{movie_name}' and {year_range}")
+
+luke_name_chart = (
+    alt.Chart(movie_name_data)
+    .encode(x=alt.X("year"), y=alt.Y("Total"), color=alt.value("green"))
+    .mark_line()
+    .properties(title="Luke Skywalker impact")
+)
+
+# create chart to display movies released data, movies iv, v and vi
+movie_release_year = [1977, 1980, 1983]
+movie_release_data = names.query(f"year in {movie_release_year} and name == 'Luke'")
+
+year_chart = (
+    alt.Chart(movie_release_data)
+    .encode(x=alt.X("year"), y=alt.Y("Total"), color=alt.value("red"))
+    .mark_circle()
+)
+
+luke_chart = luke_name_chart + year_chart
+
+luke_chart
 
 # %%

@@ -1,0 +1,234 @@
+---
+title: "Client Report - What's in a name?"
+subtitle: "Course DS 250"
+author: "Nefi Melgar"
+format:
+  html:
+    self-contained: true
+    page-layout: full
+    title-block-banner: true
+    toc: true
+    toc-depth: 3
+    toc-location: body
+    number-sections: false
+    html-math-method: katex
+    code-fold: true
+    code-summary: "Show the code"
+    code-overflow: wrap
+    code-copy: hover
+    code-tools:
+        source: false
+        toggle: true
+        caption: See code
+    
+---
+
+```{python}
+#| label: libraries
+#| include: false
+import pandas as pd
+import altair as alt
+import numpy as np
+from scipy import stats
+import datetime
+
+from IPython.display import Markdown
+from IPython.display import display
+from tabulate import tabulate
+```
+
+
+## Elevator pitch
+
+_Names as ways to identify individuals have been used through world's history. This project involves data exploration, visualization, and interpretation to gain insights into the trends and patterns related to different names over time. Is Brittany a name for old or young ladies? Has Luke Skywalker from Star Wars influeced the names of a generation? Let's dive in to the results._
+
+```{python}
+#| label: project data
+#| code-summary: Read and format project data
+# Include and execute your code here
+names_url = "https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv"
+names = pd.read_csv(names_url)
+```
+
+__Highlight the Questions and Tasks__
+
+## QUESTION 1
+
+__How does your name at your birth year compare to its use historically?__
+
+_type your results and analysis here_
+
+```{python}
+#| label: Q1
+#| code-summary: Read and format data
+# Include and execute your code here
+matthew_data = names.query('name == "Matthew"')
+
+# important year, starting year for the plot and born year
+STARTING_YEAR = 1910
+BORN_YEAR = 1993
+
+# convert 'year' column to datetime data type
+matthew_data["year"] = pd.to_datetime(matthew_data["year"], format="%Y")
+
+# filter the data, only include data points from the starting year and higher
+filtered_data = matthew_data[matthew_data["year"] >= str(STARTING_YEAR)]
+
+# select year was born
+birth_year_filter = filtered_data[filtered_data["year"] == str(BORN_YEAR)]
+
+# create chart of name through the years
+through_years_chart = (
+    alt.Chart(filtered_data).encode(x=alt.X("year:T"), y=alt.Y("Total")).mark_line()
+)
+
+# create a chart for the birth year 1993
+year_point = (
+    alt.Chart(birth_year_filter)
+    .mark_circle()
+    .encode(x=alt.X("year:T"), y=alt.Y("Total"), color=alt.value("red"))
+    .properties(title="Matthew name through the years")
+)
+
+matthew_year_chart = through_years_chart + year_point
+
+matthew_year_chart.interactive()
+
+```
+
+_include figures in chunks and discuss your findings in the figure._
+
+```{python}
+#| label: Q1 chart
+#| code-summary: plot example
+#| fig-cap: "My useless chart"
+#| fig-align: center
+# Include and execute your code here
+# alt.Chart(dat.head(200))\
+#     .encode(x="name", y="AK")\
+#     .mark_bar()\
+#     .properties(
+#         width=800,
+#         height=300
+#     )
+```
+
+
+```{python}
+#| label: Q1 table
+#| code-summary: table example
+#| tbl-cap: "Not much of a table"
+#| tbl-cap-location: top
+# Include and execute your code here
+# mydat = dat.head(1000)\
+#     .groupby('year')\
+#     .sum()\
+#     .reset_index()\
+#     .tail(10)\
+#     .filter(["year", "AK","AR"])
+
+# display(mydat)
+
+```
+
+
+## QUESTION|TASK 2
+
+__COPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE__
+
+_type your results and analysis here_
+
+```{python}
+#| label: Q2
+#| code-summary: Read and format data
+# Include and execute your code here
+
+
+```
+
+_include figures in chunks and discuss your findings in the figure._
+
+```{python}
+#| label: Q2 chart
+#| code-summary: plot example
+#| fig-cap: "My useless chart"
+#| fig-align: center
+# Include and execute your code here
+# alt.Chart(dat.head(200))\
+#     .encode(x = "name", y = "AK")\
+#     .mark_bar()
+```
+
+
+```{python}
+#| label: Q2 table
+#| code-summary: table example
+#| tbl-cap: "Not much of a table"
+#| tbl-cap-location: top
+# Include and execute your code here
+# mydat = dat.head(1000)\
+#     .groupby('year')\
+#     .sum()\
+#     .reset_index()\
+#     .tail(10)\
+#     .filter(["year", "AK","AR"])
+
+# display(mydat)
+
+```
+
+
+## QUESTION|TASK 3
+
+__COPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE__
+
+_type your results and analysis here_
+
+```{python}
+#| label: Q3
+#| code-summary: Read and format data
+# Include and execute your code here
+
+
+```
+
+_include figures in chunks and discuss your findings in the figure._
+
+```{python}
+#| label: Q3 chart
+#| code-summary: plot example
+#| fig-cap: "My useless chart"
+#| fig-align: center
+# Include and execute your code here
+# alt.Chart(dat.head(200))\
+#     .encode(x = "name", y = "AK")\
+#     .mark_bar()
+```
+
+
+```{python}
+#| label: Q3 table
+#| code-summary: table example
+#| tbl-cap: "Not much of a table"
+#| tbl-cap-location: top
+# Include and execute your code here
+# mydat = dat.head(1000)\
+#     .groupby('year')\
+#     .sum()\
+#     .reset_index()\
+#     .tail(10)\
+#     .filter(["year", "AK","AR"])
+
+# display(mydat)
+
+```
+
+
+
+## APPENDIX A (All Python Code)
+
+```python
+#paste other your code from your python file (.py) here
+#the code snippets above should be just enough code to display the chart or table needed for the question or task
+#the appendix should have all the code, and it should be well `commented`
+```

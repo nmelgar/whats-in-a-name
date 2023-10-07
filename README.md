@@ -64,12 +64,12 @@ _Star Wars is a popular series of movies, streamings, videogames and more. Luke 
 ## Required Technologies
 <hr>
 
-* At least Python 3.10.11
-* Pandas
-* Altair
-* datetime module
++ At least Python 3.10.11
++ Pandas
++ Altair
++ datetime module
 
 ## Author
 <hr>
 
-* Nefi Melgar (mel16013@byui.edu)
++ Nefi Melgar (mel16013@byui.edu)

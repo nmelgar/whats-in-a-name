@@ -1,5 +1,5 @@
 # What's in a name?
-
+<hr>
 ## Background
 
 Early in prehistory, some descriptive names began to be used again and again until they formed a name pool for a particular culture. Parents would choose names from the pool of existing names rather than invent new ones for their children. </br>
@@ -9,12 +9,13 @@ With the rise of Christianity, certain trends in naming practices manifested. Ch
 By the Middle Ages, the Christian influence on naming practices was pervasive. Each culture had its pool of names, which were a combination of native names and early Christian names that had been in the language long enough to be considered native. [Visit the source](https://heraldry.sca.org/names/namehist.html) </br>
 
 ## Data
+<hr>
 
 [Download](https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv)
 [Information](https://github.com/byuidatascience/data4names/blob/master/data.md) </br>
 
 ## Questions and Tasks
-
+<hr>
 For Project 1 the answer to each question should include a chart and a written response. The years labels on your charts should not include a comma. At least two of your charts must include reference marks.
 
 - How does your name at your birth year compare to its use historically?
@@ -23,6 +24,7 @@ For Project 1 the answer to each question should include a chart and a written r
 - Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?
 
 ## Results
+<hr>
 ## Elevator Pitch
 _Names as ways to identify individuals have been used through world's history. This project involves data exploration, visualization, and interpretation to gain insights into the trends and patterns related to different names over time. Is Brittany a name for old or young ladies? Has Luke Skywalker from Star Wars influeced the names of a generation? Let's dive in to the results._
 
@@ -58,3 +60,14 @@ __THINK OF A UNIQUE NAME FROM A FAMOUS MOVIE. PLOT THE USAGE OF THAT NAME AND SE
 _Star Wars is a popular series of movies, streamings, videogames and more. Luke Skywalker was the main character for the movies IV (1977), V (1980) and VI (1983). Although "Luke" name started to grow in popularity around 1970, from 1977 to 1980 it went from 1235 to 3108 a growth of 252% in just 3 years, after that the name's popularity had it's ups and downs._
 
 ![image](https://raw.githubusercontent.com/nmelgar/whats-in-a-name/main/images/luke.png)
+
+## Required Technologies
+<hr>
+* At least Python 3.10.11
+* Pandas
+* Altair
+* datetime module
+
+## Author
+<hr>
+* Nefi Melgar (mel16013@byui.edu)

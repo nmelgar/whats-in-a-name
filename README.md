@@ -23,4 +23,38 @@ For Project 1 the answer to each question should include a chart and a written r
 - Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?
 
 ## Results
+## Elevator Pitch
+_Names as ways to identify individuals have been used through world's history. This project involves data exploration, visualization, and interpretation to gain insights into the trends and patterns related to different names over time. Is Brittany a name for old or young ladies? Has Luke Skywalker from Star Wars influeced the names of a generation? Let's dive in to the results._
 
+## QUESTION 1
+
+__HOW DOES YOUR NAME AT YOUR BIRTH YEAR COMPARE TO ITS USE HISTORICALLY?__
+
+_My name was not listed in the data set. So I took my eldest brother's name which is Matthew, he was born in 1993. Around 1940, Matthew started to increase in popularity, it took 50 years to reach the highest point with more than 35,000 Matthews.._
+_Once the highest point was reached, the name had a decrease in popularity, before 2000 it shew a spark of popularity, but the dicrease continued._
+
+![image](https://raw.githubusercontent.com/nmelgar/whats-in-a-name/main/images/yourname.png)
+
+## QUESTION 2
+
+__IF YOU TALKED TO SOMEONE NAMED BRITTANY ON THE PHONE, WHAT IS YOUR GUESS OF HIS OR HER AGE? WHAT AGES WOULD YOU NOT GUESS??__
+
+_Personally I don't know any Brittany, is seems that it is not a very common name in Mexico. I would think Brittany is a name for women between 3 and 35 years old. Data show that Brittany was used for the first time in 1968, it means that there are Brittanys that are 55 years old, personally I wouldn't guess that age, since it sounds like a "modern" name._
+
+![image](https://raw.githubusercontent.com/nmelgar/whats-in-a-name/main/images/brittany.png)
+
+## QUESTION 3
+
+__MARY, MARTHA, PETER, AND PAUL ARE ALL CHRISTIAN NAMES. FROM 1920 - 2000, COMPARE THE NAME USAGE OF EACH OF THE FOUR NAMES. WHAT TRENDS DO YOU NOTICE??__
+
+_These names had an interesting increase in popularity around 1940's, but for the 1960's all of them were in their way to decrase in popularity. Mary shows the highest amount of decrease, in around 20 years it went from 45,000 to 15,000, a loss of 30,000, a considerable amount compared to the other names._
+
+![image](https://raw.githubusercontent.com/nmelgar/whats-in-a-name/main/images/cristian%20names.png)
+
+## QUESTION 4
+
+__THINK OF A UNIQUE NAME FROM A FAMOUS MOVIE. PLOT THE USAGE OF THAT NAME AND SEE HOW CHANGES LINE UP WITH THE MOVIE RELEASE. DOES IT LOOK LIKE THE MOVIE HAD AN EFFECT ON USAGE?__
+
+_Star Wars is a popular series of movies, streamings, videogames and more. Luke Skywalker was the main character for the movies IV (1977), V (1980) and VI (1983). Although "Luke" name started to grow in popularity around 1970, from 1977 to 1980 it went from 1235 to 3108 a growth of 252% in just 3 years, after that the name's popularity had it's ups and downs._
+
+![image](https://raw.githubusercontent.com/nmelgar/whats-in-a-name/main/images/luke.png)

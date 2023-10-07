@@ -11,7 +11,7 @@ By the Middle Ages, the Christian influence on naming practices was pervasive. E
 ## Data
 
 [Download](https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv)
-[Information](https://github.com/byuidatascience/data4names/blob/master/data.md)
+[Information](https://github.com/byuidatascience/data4names/blob/master/data.md) </br>
 
 ## Questions and Tasks
 
@@ -21,3 +21,6 @@ For Project 1 the answer to each question should include a chart and a written r
 - If you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?
 - Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?
 - Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?
+
+## Results
+

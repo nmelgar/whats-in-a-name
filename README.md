@@ -25,7 +25,7 @@ For Project 1 the answer to each question should include a chart and a written r
 
 ## Results
 <hr>
-## Elevator Pitch
+
 _Names as ways to identify individuals have been used through world's history. This project involves data exploration, visualization, and interpretation to gain insights into the trends and patterns related to different names over time. Is Brittany a name for old or young ladies? Has Luke Skywalker from Star Wars influeced the names of a generation? Let's dive in to the results._
 
 ## QUESTION 1

@@ -66,7 +66,7 @@ _Star Wars is a popular series of movies, streamings, videogames and more. Luke 
 
 + At least Python 3.10.11
 + Pandas
-+ Altair
++ Plotly
 + datetime module
 
 ## Author

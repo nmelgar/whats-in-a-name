@@ -12,7 +12,6 @@ names = pd.read_csv(names_url)
 
 # %%
 # # QUESTION 1
-
 # create dataframe only for "Matthew" name
 matthew_data = names.query('name == "Matthew"')
 
@@ -50,7 +49,6 @@ mat_chart.show()
 
 # %%
 # QUESTION 2
-
 # get data and filter it by name
 brittany_data = names.query('name == "Brittany"')
 current_year = datetime.datetime.now().year
@@ -108,7 +106,6 @@ luke_name_chart = px.line(
     title="Luke Skywalker impact on names of the people",
 )
 
-
 # data to display movies released data, movies iv, v and vi
 movie_release_year = [1977, 1980, 1983]
 movie_release_data = names.query(
@@ -128,7 +125,7 @@ luke_name_chart.add_trace(
         name="Years when Star Wars movies were released (IV - VI)",
     )
 )
-# change the layoyt so the legend show at bottom of the plot
+# change the layout so the legend show at bottom of the plot
 luke_name_chart.update_layout(
     legend=dict(
         orientation="h",
@@ -139,3 +136,52 @@ luke_name_chart.update_layout(
 luke_name_chart.show()
 
 # %%
+# # STRETCH QUESTION
+# choose name, and year range for Elliot's name
+movie_name = "Elliot"
+year_range = "year >= 1950 and year <= 2015"
+elliot_data = names.query(f"name == '{movie_name}' and {year_range}")
+
+# create line chart for Elliot's name through the years
+elliot_chart = px.line(
+    elliot_data,
+    x="year",
+    y="Total",
+    color="name",
+    labels={"year": "Year"},
+    title="Elliot...What?",
+)
+
+# data to display movies released data, 1st , 2nd and 3rd
+elliot_selected_years_text = {
+    1982: "E.T. Released",
+    1985: "Second Released",
+    2002: "Third Released",
+}
+elliot_selected_data = names.query(
+    f"year in @movie_release_year and name == '{movie_name}'"
+)
+totals_movie_year = elliot_selected_data["Total"].values
+
+# add vertical lines for the years when the movies were released
+vlines_loop_count = 0
+selected_years_count = len(elliot_selected_years_text)
+annotation_position_list = ["top left", "top right", "top right"]
+
+while vlines_loop_count <= selected_years_count:
+    i = 0
+    for year, text in elliot_selected_years_text.items():
+        # https://plotly.com/python/horizontal-vertical-shapes/
+        elliot_chart.add_vline(
+            x=year,
+            line_width=1,
+            line_dash="dash",
+            line_color="red",
+            annotation_text=text,
+            annotation_position=f"{annotation_position_list[i]}",
+        )
+        vlines_loop_count += 1
+        i += 1
+# change the layout so the legend show at bottom of the plot
+
+elliot_chart.show()

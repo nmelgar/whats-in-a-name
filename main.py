@@ -182,6 +182,5 @@ while vlines_loop_count <= selected_years_count:
         )
         vlines_loop_count += 1
         i += 1
-# change the layout so the legend show at bottom of the plot
-
+        
 elliot_chart.show()
